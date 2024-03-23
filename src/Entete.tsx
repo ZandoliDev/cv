@@ -21,7 +21,7 @@ export const Entete = () => {
 
   return (
     <nav className="flex items-stretch justify-between">
-      <div id="identite-contact" className="bg-cyan-800 p-2 text-white text-xs">
+      <div id="identite-contact" className="bg-cyan-800 p-2 text-white text-xs w-1/2 ">
         <h2 className="text-xl font-bold">{name}</h2>
         <p className="mt-2">
           {address}
@@ -35,8 +35,8 @@ export const Entete = () => {
           </span>
         </p>
         <p className="mt-1 ">
-          <span className="ml-2">
-            <i className="fa-solid fa-at" />
+          <span>
+            <i className="fa-solid fa-at  mr-2" />
             {email}
           </span>
         </p>
