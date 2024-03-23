@@ -25,8 +25,10 @@ export const SchemaCompetences = () => {
         bg-black bg-opacity-50
         "
         >
-          <div className="bg-orange-300 w-full p-10">
-            <button onClick={handleClose}>X</button>
+          <div className="bg-orange-300 w-full p-5">
+            <button onClick={handleClose}>
+              <i className="text-lg text-cyan-950 fa-regular fa-circle-xmark" />
+            </button>
             <img
               src={skillsSchema}
               alt="Schématisation des mes compétences"
