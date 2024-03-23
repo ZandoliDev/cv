@@ -1,13 +1,13 @@
 import { Entete } from "./Entete"
-import skillsSchema from "./assets/images/skills_schema.svg"
+import { SchemaCompetences } from "./Schema-competences"
 
 export const Cv = () => {
   return (
     <>
       <div className="max-w-screen-md mx-auto" id="divToExport">
         <Entete />
-        <div>
-          <img src={skillsSchema} className="w-full p-3 bg-orange-300" />
+        <main>
+          <SchemaCompetences />
           <div className="container-fluid">
             <div className="row">
               <div className="col-sm-3"></div>
@@ -61,7 +61,7 @@ export const Cv = () => {
               <div className="col-sm-3"></div>
             </div>
           </div>
-        </div>
+        </main>
       </div>
     </>
   )
