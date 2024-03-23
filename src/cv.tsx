@@ -7,7 +7,7 @@ export const Cv = () => {
       <div className="max-w-screen-md mx-auto" id="divToExport">
         <Entete />
         <div>
-          <img src={skillsSchema} className="w-full" />
+          <img src={skillsSchema} className="w-full p-3 bg-orange-300" />
           <div className="container-fluid">
             <div className="row">
               <div className="col-sm-3"></div>
