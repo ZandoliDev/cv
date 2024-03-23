@@ -18,7 +18,7 @@ export const Entete = () => {
 
   return (
     <header className="flex items-stretch justify-between">
-      <div id="identite-contact" className="bg-cyan-800 p-2 text-cyan-200 text-xs w-1/2 ">
+      <div id="identite-contact" className="bg-cyan-800 p-2 text-cyan-50 text-xs w-1/2 ">
         <h2 className="text-xl font-bold">{name}</h2>
         <p className="mt-1 ">{email}</p>
         <p className="mt-2">{calculateAge()} ans</p>
