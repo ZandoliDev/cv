@@ -1,4 +1,5 @@
 import { Entete } from "./Entete"
+import { ExperienceEtFormation } from "./ExperienceEtFormation"
 import { SchemaCompetences } from "./Schema-competences"
 
 export const Cv = () => {
@@ -8,6 +9,7 @@ export const Cv = () => {
         <Entete />
         <main>
           <SchemaCompetences />
+          <ExperienceEtFormation />
         </main>
       </div>
     </>
