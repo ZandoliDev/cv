@@ -35,17 +35,18 @@ const mesFormations = [
 const Formation = (formation: FormationType) => {
   return (
     <div className="border-dotted  border-orange-300 p-1 my-2 text-sm ">
-      <p className="text-orange-900 text-sm">{formation.annee}</p>
-      <p className="font-bold text-cyan-950 ">{formation.titre}</p>
-      <p className="text-end text-sm">{formation.nomOrganisme}</p>
+      <p className="text-gray-700 font-semibold">
+        {formation.annee} - {formation.titre}
+      </p>
+      <p className="text-sm text-gray-600">{formation.nomOrganisme}</p>
     </div>
   )
 }
 
 export const Formations = () => {
   return (
-    <div className="bg-cyan-100 rounded p-2">
-      <h3 className="bg-orange-300 text-lg text-center">Formations</h3>
+    <div className="bg-white p-4 rounded-lg shadow">
+      <h3 className="text-cyan-600 font-bold text-lg mb-4">Formations</h3>
       {mesFormations.map((formation) => (
         <Formation {...formation} />
       ))}

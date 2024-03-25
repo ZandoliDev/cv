@@ -69,8 +69,8 @@ const Experience = (experience: ExperienceType) => {
 export const Experiences = () => {
   return (
     <>
-      <div className="col-span-3 rounded p-2">
-        <h3 className="bg-cyan-100 text-lg text-center">Expériences</h3>
+      <div className="md:col-span-2 bg-white p-4 rounded-lg shadow">
+        <h3 className="text-cyan-600 font-bold text-lg mb-4">Expériences</h3>
         {mesExperiences.map((experience) => (
           <Experience {...experience} />
         ))}

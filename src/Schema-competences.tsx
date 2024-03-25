@@ -8,11 +8,13 @@ export const SchemaCompetences = () => {
   const handleClose = () => setIsOpen(false)
 
   return (
-    <div className="p-3 mt-3 bg-orange-300 rounded hover:shadow-xl hover:shadow-orange-400/100 cursor-pointer">
-      <h3 className="bg-cyan-200 text-cyan-950 text-center">Schématisation de mes compétences</h3>
+    <div className="mb-6">
+      <h3 className="bg-cyan-600 text-white text-xl font-bold rounded-t-lg p-4 shadow">
+        Schématisation de mes compétences
+      </h3>
       <img
         src={skillsSchema}
-        className="w-full p-3 bg-orange-300"
+        className="w-full bg-white p-3 rounded-b-lg hover:shadow-xl cursor-pointer"
         alt="Schématisation des mes compétences"
         onClick={handleOpen}
       />
@@ -25,9 +27,9 @@ export const SchemaCompetences = () => {
         bg-black bg-opacity-50
         "
         >
-          <div className="bg-orange-300 p-5">
+          <div className="bg-white rounded p-5">
             <button onClick={handleClose}>
-              <i className="text-lg text-cyan-950 fa-regular fa-circle-xmark" />
+              <i className="text-lg text-cyan-600 fa-regular fa-circle-xmark" />
             </button>
             <img
               src={skillsSchema}

@@ -5,7 +5,7 @@ import { SchemaCompetences } from "./Schema-competences"
 export const Cv = () => {
   return (
     <>
-      <div className="max-w-screen-md mx-auto" id="divToExport">
+      <div className="max-w-screen-lg mx-auto p-5" id="divToExport">
         <Entete />
         <main>
           <SchemaCompetences />

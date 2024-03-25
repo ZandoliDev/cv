@@ -17,30 +17,37 @@ export const Entete = () => {
   }
 
   return (
-    <header className="flex items-stretch justify-between">
-      <div id="identite-contact" className="bg-cyan-800 p-2 text-cyan-50 text-xs rounded-bl">
-        <h2 className="text-xl font-bold">{name}</h2>
-        <p className="mt-1 ">{email}</p>
-        <p className="mt-2">{calculateAge()} ans</p>
-        <p className="mt-2">Permis B</p>
-        <p className="mt-1">Freelance en SASU</p>
-        <p className="p-2 mt-2 border-solid border-2 border-cyan-200">
-          Pour des informations détaillées de contact, cliquez ici pour télécharger mon CV au format
-          PDF.
-        </p>
-      </div>
+    <header className="bg-white shadow rounded-lg mb-6 p-6">
       <div
-        id="titre"
-        className="bg-cyan-200 flex flex-col flex-grow justify-center rounded-br text-end p-2 text-cyan-950"
+        id="identite-contact"
+        className="flex flex-wrap md:flex-nowrap items-center justify-between"
       >
-        <p>
-          <h1 className="text-right text-xl font-bold">Teach Lead / Développeur Senior</h1>
-        </p>
-        <p className="mt-1 ">
-          Spécialiste backend Java avec plus de 10 ans d'expérience, ouvert à explorer de nouvelles
-          technologies et au développement front-end. Rapidité d'adaptation et qualité de conception
-          garanties.
-        </p>
+        <div className="mb-4 md:mb-0 w-full md:w-auto text-gray-600">
+          <h2 className="text-3xl font-bold text-cyan-600">{name}</h2>
+          <p className="mt-1 ">{email}</p>
+          <p className="mt-2">{calculateAge()} ans</p>
+          <p className="mt-2">Permis B</p>
+          <p className="mt-2 text-sm text-gray-600">Freelance en SASU</p>
+          <a
+            href="#"
+            className="w-64 mt-3 inline-block bg-cyan-600 text-white rounded-full px-6 py-2 text-sm"
+          >
+            Télécharger mon CV en PDF
+          </a>
+        </div>
+
+        <div id="titre" className="w-full md:w-auto text-right">
+          <p>
+            <h1 className="text-xl font-semibold text-gray-700">Tech Lead / Développeur Senior</h1>
+          </p>
+          <p className="mt-1 text-gray-600">
+            Spécialiste backend Java avec plus de 10 ans d'expérience, ouvert à d'autres
+            technologies et au front-end.
+          </p>
+          <p className="mt-1 text-gray-600">
+            Rapidité d'adaptation, efficacité et qualité des livrables garanties. Communication
+          </p>
+        </div>
       </div>
     </header>
   )
