@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ParcoursCV } from "./parcours-cv/ParcoursCV"
+import { TelechargerCV } from "./parcours-cv/TelechargerCV"
 
 export const Entete = () => {
   const [showPopup, setShowPopup] = useState(false)
@@ -63,7 +63,7 @@ export const Entete = () => {
         </div>
       </div>
 
-      {showPopup && <ParcoursCV togglePopup={togglePopup} />}
+      {showPopup && <TelechargerCV togglePopup={togglePopup} />}
     </header>
   )
 }
