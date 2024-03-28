@@ -17,7 +17,7 @@ export const Entete = () => {
   }
 
   return (
-    <header className="bg-white shadow rounded-lg mb-6 p-6">
+    <header className="bg-cyan-50 shadow rounded-lg mb-6 p-6">
       <div
         id="identite-contact"
         className="flex flex-wrap md:flex-nowrap items-center justify-between"
@@ -36,16 +36,20 @@ export const Entete = () => {
           </a>
         </div>
 
-        <div id="titre" className="w-full md:w-auto text-right">
+        <div id="titre" className="w-full ml-5 p-2 bg-cyan-200 shadow-xl rounded text-right ">
           <p>
             <h1 className="text-xl font-semibold text-gray-700">Tech Lead / Développeur Senior</h1>
           </p>
           <p className="mt-1 text-gray-600">
-            Spécialiste backend Java avec plus de 10 ans d'expérience, ouvert à d'autres
-            technologies et au front-end.
+            Spécialiste backend Java avec plus de 10 ans d'expérience
+            <br />
+            Ouvert à d'autres technologies et au front-end
           </p>
           <p className="mt-1 text-gray-600">
-            Rapidité d'adaptation, efficacité et qualité des livrables garanties. Communication
+            Rapidité d'adaptation, efficacité et qualité des livrables garanties.
+          </p>
+          <p className="mt-5 text-gray-600 text-sm">
+            Actuellement en mission, disponible sous 1 mois et demi
           </p>
         </div>
       </div>
