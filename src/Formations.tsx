@@ -45,11 +45,11 @@ const Formation = (formation: FormationType) => {
 
 export const Formations = () => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow">
+    <section className="bg-white p-4 rounded-lg shadow">
       <h3 className="text-cyan-600 font-bold text-lg mb-4">Formations</h3>
       {mesFormations.map((formation) => (
         <Formation {...formation} />
       ))}
-    </div>
+    </section>
   )
 }

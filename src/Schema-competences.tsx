@@ -8,7 +8,7 @@ export const SchemaCompetences = () => {
   const handleClose = () => setIsOpen(false)
 
   return (
-    <div className="mb-6">
+    <section className="mb-6">
       <h3 className="bg-cyan-600 text-white text-xl font-bold rounded-t-lg p-4 shadow">
         Schématisation de mes compétences
       </h3>
@@ -40,6 +40,6 @@ export const SchemaCompetences = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   )
 }
