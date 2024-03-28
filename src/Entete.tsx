@@ -30,7 +30,7 @@ export const Entete = () => {
           <p className="mt-2 text-sm text-gray-600">Freelance en SASU</p>
           <a
             href="#"
-            className="w-64 mt-3 inline-block bg-cyan-600 text-white rounded-full px-6 py-2 text-sm"
+            className="w-64 mt-3 inline-block bg-cyan-600 text-white text-sm font-bold rounded-full px-6 py-2"
           >
             Télécharger mon CV en PDF
           </a>
