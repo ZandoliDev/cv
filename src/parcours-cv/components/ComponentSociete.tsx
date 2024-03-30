@@ -1,25 +1,103 @@
+import { useContext } from "react"
+import { ContactContext } from "./contact.context"
+import { Societe } from "../model/Contact"
+
 export const ComponentSociete = () => {
+  const { updateSociete } = useContext(ContactContext)
+
   return (
     <>
       <h3 className="text-lg font-bold mb-4">Votre société</h3>
       <form>
-        <input
-          type="text"
-          placeholder="Nom de la société"
-          className="block w-full p-2 mb-4 border rounded"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Votre poste"
-          className="block w-full p-2 mb-4 border rounded"
-          required
-        />
-        <textarea
-          placeholder="Vos missions identifiées"
-          className="block w-full p-2 mb-4 border rounded"
-          required
-        ></textarea>
+        <label>
+          Nom
+          <input
+            type="text"
+            placeholder="Nom de la société"
+            className="block w-full p-2 mb-4 border rounded"
+            onChange={(e) => {
+              updateSociete("societe", { nom: e.target.value } as Societe)
+            }}
+            required
+          />
+        </label>
+        <label>
+          Taille
+          <select
+            name="taille"
+            className="block w-full p-2 mb-4 bg-white border rounded"
+            onChange={(e) => {
+              updateSociete("taille", { nom: e.target.value } as Societe)
+            }}
+            required
+          >
+            <option value="">Choisissez la taille de la société</option>
+            <option value="1">Moins de 10 salariés</option>
+            <option value="2">Entre 10 et 50 salariés</option>
+            <option value="3">Entre 50 et 250 salariés</option>
+            <option value="4">Plus de 250 salariés</option>
+          </select>
+        </label>
+        <label>
+          Adresse
+          <input
+            type="text"
+            placeholder="Adresse de la société"
+            className="block w-full p-2 mb-4 border rounded"
+            onChange={(e) => {
+              updateSociete("adresse", { nom: e.target.value } as Societe)
+            }}
+            required
+          />
+        </label>
+        <label>
+          Code postal
+          <input
+            type="text"
+            placeholder="Code postal"
+            className="block w-full p-2 mb-4 border rounded"
+            onChange={(e) => {
+              updateSociete("codePostal", { nom: e.target.value } as Societe)
+            }}
+            required
+          />
+        </label>
+        <label>
+          Ville
+          <input
+            type="text"
+            placeholder="Code postal"
+            className="block w-full p-2 mb-4 border rounded"
+            onChange={(e) => {
+              updateSociete("ville", { nom: e.target.value } as Societe)
+            }}
+            required
+          />
+        </label>
+        <label>
+          Pays
+          <input
+            type="text"
+            placeholder="Code postal"
+            className="block w-full p-2 mb-4 border rounded"
+            onChange={(e) => {
+              updateSociete("pays", { nom: e.target.value } as Societe)
+            }}
+            required
+          />
+        </label>
+        <label>
+          Description
+          <input
+            type="text"
+            placeholder="Description de la société"
+            className="block w-full p-2 mb-4 border rounded"
+            onChange={(e) => {
+              updateSociete("description", { nom: e.target.value } as Societe)
+            }}
+            required
+          />
+        </label>
       </form>
     </>
   )

@@ -3,14 +3,27 @@ export class Etape {
   private etapePrecedente?: Etape
   private fonctionValidation?: () => void
 
-  constructor(private readonly contenu: React.ReactElement) {}
+  constructor(
+    private readonly id: string,
+    private readonly contenu: React.ReactElement
+  ) {}
 
-  suivante() {
-    return this.etapeSuivante
+  suivante(): Etape {
+    if (this.isFinale()) {
+      throw new Error("Il n'y a pas d'étape suivante pour l'étape " + this.id)
+    }
+    return this.etapeSuivante as Etape
   }
 
-  precedente() {
-    return this.etapePrecedente
+  precedente(): Etape {
+    if (this.isInitiale()) {
+      throw new Error("Il n'y a pas d'étape précédente pour l'étape " + this.id)
+    }
+    return this.etapePrecedente as Etape
+  }
+
+  getId() {
+    return this.id
   }
 
   getContenu() {
@@ -23,11 +36,7 @@ export class Etape {
 
   setEtapeSuivante(etape: Etape) {
     this.etapeSuivante = etape
-    etape.setEtapePrecedente(this)
-  }
-
-  setEtapePrecedente(etape: Etape) {
-    this.etapePrecedente = etape
+    etape.etapePrecedente = this
   }
 
   setFonctionValidation(fonctionValidation: () => void) {

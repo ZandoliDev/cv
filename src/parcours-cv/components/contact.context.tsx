@@ -1,12 +1,14 @@
 import { ReactNode, createContext, useState } from "react"
-import { Contact } from "../model/Contact"
+import { Contact, Societe } from "../model/Contact"
 
 interface ContactContextType {
   contact: Contact
+  updateSociete: (champ: string, valeur: Societe) => void
 }
 
 export const ContactContext = createContext<ContactContextType>({
   contact: {} as Contact,
+  updateSociete: () => {},
 })
 
 interface ContactContextProviderProps {
@@ -14,8 +16,15 @@ interface ContactContextProviderProps {
 }
 
 export const ContactContextProvider = (props: ContactContextProviderProps) => {
+  const [contact, setContact] = useState<Contact>({} as Contact)
 
-  const [contact] = useState<Contact>({} as Contact)
+  const updateSociete = (champ: string, societe: Societe) => {
+    setContact({ ...contact, [champ]: societe})
+  }
 
-  return <ContactContext.Provider value={{ contact }}>{props.children}</ContactContext.Provider>
+  return (
+    <ContactContext.Provider value={{ contact, updateSociete }}>
+      {props.children}
+    </ContactContext.Provider>
+  )
 }

@@ -70,6 +70,7 @@ export const Entete = () => {
       {showPopup && (
         <ModaleTelechargementCv
           fonctionAnnulation={fermerPopup}
+          fonctionFinalisation={fermerPopup}
         />
       )}
     </header>
