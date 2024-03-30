@@ -13,11 +13,12 @@ export class Etape {
   }
 
   getContenu() {
-    return this.contenu
+    return typeof this.contenu === 'function' ? this.contenu() : this.contenu;
   }
 
   setEtapeSuivante(etape: Etape) {
     this.etapeSuivante = etape
+    etape.setEtapePrecedente(this)
   }
 
   setEtapePrecedente(etape: Etape) {

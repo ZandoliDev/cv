@@ -1,60 +1,67 @@
 import { useState } from "react"
 import { Etape } from "./Etapes"
-import { IntroductionParcoursCV } from "./IntroductionParcoursCV"
 
-export const TelechargerCV = ({ togglePopup }: { togglePopup: () => void }) => {
+export const TelechargerCV = ({
+  etapeCourante,
+  fermerPopup,
+}: {
+  etapeCourante: Etape
+  fermerPopup: () => void
+}) => {
+  const [etape, setEtape] = useState(etapeCourante)
 
-  const [ etape, setEtape ] = useState(new Etape(IntroductionParcoursCV))
+  const continuer = () => {
+    if (etape.suivante()) {
+      setEtape(etape.suivante()!)
+    }
+  }
 
+  const revenir = () => {
+    if (etape.precedente()) {
+      setEtape(etape.precedente()!)
+    }
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
       <div className="bg-white p-5 rounded-lg max-w-lg mx-auto">
         {etape.getContenu()}
-
-        <h3 className="text-lg font-bold mb-4">Votre société</h3>
-        <form>
-          <input
-            type="text"
-            placeholder="Nom de la société"
-            className="block w-full p-2 mb-4 border rounded"
-            required
-          />
-          <input
-            type="text"
-            placeholder="Votre poste"
-            className="block w-full p-2 mb-4 border rounded"
-            required
-          />
-          <textarea
-            placeholder="Vos missions identifiées"
-            className="block w-full p-2 mb-4 border rounded"
-            required
-          ></textarea>
-          <div className="flex justify-between">
+        <div className="flex justify-between">
+          <button
+            type="button"
+            onClick={fermerPopup}
+            className="bg-gray-500 text-white rounded px-4 py-2"
+          >
+            Annuler
+          </button>
+          {!etape.isInitiale() && (
             <button
               type="button"
-              onClick={togglePopup}
-              className="bg-gray-500 text-white rounded px-4 py-2"
+              onClick={revenir}
+              className="bg-cyan-600 text-white rounded px-4 py-2"
             >
-              Annuler
+              Revenir
             </button>
+          )}
+          {etape.isFinale() && (
             <button
               type="button"
-              onClick={togglePopup}
+              onClick={fermerPopup}
+              className="bg-cyan-600 text-white rounded px-4 py-2"
+            >
+              Terminer
+            </button>
+          )}
+          {!etape.isFinale() && (
+            <button
+              type="button"
+              onClick={continuer}
               className="bg-cyan-600 text-white rounded px-4 py-2"
             >
               Continuer <i className="fa-solid fa-arrow-right"></i>
             </button>
-            <button
-              type="button"
-              onClick={togglePopup}
-              className="bg-cyan-600 text-white rounded px-4 py-2"
-            >
-              Continuer <i className="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </form>
+          )}
+        </div>
       </div>
     </div>
   )

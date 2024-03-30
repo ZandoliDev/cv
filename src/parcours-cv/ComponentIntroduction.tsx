@@ -1,7 +1,5 @@
-export const IntroductionParcoursCV = () => {
+export const ComponentIntroduction = () => {
   return (
-    
-
     <div className="mb-4">
       <p className="text-center">Je suis ravi de votre intérêt pour mon profil ! 😊</p>
       <p className="mt-2">
@@ -14,8 +12,8 @@ export const IntroductionParcoursCV = () => {
         rencontre.
       </p>
       <p className="mt-2">
-        ️🛡️ Soyez assuré que vos informations demeureront confidentielles et ne seront utilisées
-        que dans le cadre de nos échanges professionnels.🛡️
+        ️🛡️ Soyez assuré que vos informations demeureront confidentielles et ne seront utilisées que
+        dans le cadre de nos échanges professionnels.🛡️
       </p>
       <p className="mt-2">🙏 Merci pour votre compréhension et votre temps.⌛️</p>
     </div>

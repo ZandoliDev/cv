@@ -1,11 +1,16 @@
 import { useState } from "react"
 import { TelechargerCV } from "./parcours-cv/TelechargerCV"
+import { etapeIntroduction } from "./parcours-cv/ParcoursCV"
 
 export const Entete = () => {
   const [showPopup, setShowPopup] = useState(false)
 
-  const togglePopup = () => {
-    setShowPopup(!showPopup)
+  const fermerPopup = () => {
+    setShowPopup(false)
+  }
+
+  const ouvrirPopup = () => {
+    setShowPopup(true)
   }
 
   const dateOfBirth = new Date(import.meta.env.REACT_APP_DATE_OF_BIRTH || "1970-01-01")
@@ -38,7 +43,7 @@ export const Entete = () => {
           <p className="mt-2">Permis B</p>
           <p className="mt-2 text-sm text-gray-600">Freelance en SASU</p>
           <button
-            onClick={togglePopup}
+            onClick={ouvrirPopup}
             className="w-64 mt-3 inline-block bg-cyan-600 text-white text-sm font-bold rounded-full px-6 py-2"
           >
             Télécharger mon CV en PDF
@@ -63,7 +68,7 @@ export const Entete = () => {
         </div>
       </div>
 
-      {showPopup && <TelechargerCV togglePopup={togglePopup} />}
+      {showPopup && <TelechargerCV fermerPopup={fermerPopup} etapeCourante={etapeIntroduction} />}
     </header>
   )
 }
