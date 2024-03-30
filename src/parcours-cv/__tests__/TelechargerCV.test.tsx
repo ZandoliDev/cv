@@ -1,13 +1,16 @@
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { useContext } from "react"
-import { afterEach, expect, test } from "vitest"
+import { afterEach, expect, test, vi } from "vitest"
 import { ContactContext, ContactContextProvider } from "../components/Contact.context"
 import { ModaleTelechargementCv } from "../components/ModaleTelechargementCv"
 import { etapeSociete } from "../model/ParcoursCV"
+import { sauvegarderSociete } from "../gateway/societe.gateway"
 
 afterEach(() => {
   cleanup()
 })
+
+vi.mock("../gateway/societe.gateway", () => ({ sauvegarderSociete: vi.fn() }))
 
 test("L'affichage de la modale de téléchargement du CV affiche l'introduction", () => {
   render(<ModaleTelechargementCv fonctionAnnulation={() => {}} fonctionFinalisation={() => {}} />)
@@ -54,6 +57,7 @@ test("Le clic sur le bouton 'Revenir' depuis le formulaire de la société affic
 })
 
 test("Le clic sur le bouton 'Continuer' depuis le formulaire de la société sauvegarde les informations saisies dans le contexte et affiche le formulaire du contact", async () => {
+
   render(
     <ContactContextProvider>
       <ModaleTelechargementCv
@@ -91,6 +95,8 @@ test("Le clic sur le bouton 'Continuer' depuis le formulaire de la société sau
     screen.getByText("Ville de la société : Paris")
     screen.getByText("Pays de la société : France")
     screen.getByText("Description de la société : Société de conseil en RH")
+
+    expect(sauvegarderSociete).toHaveBeenCalledOnce()
   })
 })
 

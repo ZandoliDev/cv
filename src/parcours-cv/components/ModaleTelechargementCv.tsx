@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Etape } from "../model/Etape"
 import { etapeIntroduction } from "../model/ParcoursCV"
+import { sauvegarderSociete } from "../gateway/societe.gateway"
+import { ContactContext } from "./Contact.context"
 
 export const ModaleTelechargementCv = ({
   fonctionAnnulation,
@@ -12,6 +14,7 @@ export const ModaleTelechargementCv = ({
   etapeCourante?: Etape
   }) => {
 
+  const { contact } = useContext(ContactContext)
   const [etape, setEtape] = useState(etapeCourante ? etapeCourante : etapeIntroduction)
 
   const etapeSuivante = () => {
@@ -22,7 +25,8 @@ export const ModaleTelechargementCv = ({
     setEtape(etape.precedente())
   }
 
-  const validerEtape = () => {
+  const validerParcours = () => {
+    sauvegarderSociete(contact.societe)
     fonctionFinalisation()
   }
 
@@ -60,7 +64,7 @@ export const ModaleTelechargementCv = ({
             {etape.isFinale() && (
               <button
                 type="button"
-                onClick={validerEtape}
+                onClick={validerParcours}
                 className="bg-cyan-600 text-white rounded px-4 py-2"
               >
                 Terminer
