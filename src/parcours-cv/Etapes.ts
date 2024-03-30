@@ -2,7 +2,7 @@ export class Etape {
   private etapeSuivante?: Etape
   private etapePrecedente?: Etape
 
-  constructor(private readonly contenu: any) {}
+  constructor(private readonly contenu: React.ReactElement) {}
 
   suivante() {
     return this.etapeSuivante
@@ -13,7 +13,7 @@ export class Etape {
   }
 
   getContenu() {
-    return typeof this.contenu === 'function' ? this.contenu() : this.contenu;
+    return this.contenu
   }
 
   setEtapeSuivante(etape: Etape) {
