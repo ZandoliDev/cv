@@ -1,8 +1,8 @@
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { useContext } from "react"
 import { afterEach, expect, test } from "vitest"
+import { ContactContext, ContactContextProvider } from "../components/Contact.context"
 import { ModaleTelechargementCv } from "../components/ModaleTelechargementCv"
-import { ContactContext, ContactContextProvider } from "../components/contact.context"
 import { etapeSociete } from "../model/ParcoursCV"
 
 afterEach(() => {
@@ -66,15 +66,31 @@ test("Le clic sur le bouton 'Continuer' depuis le formulaire de la société sau
   )
 
   fireEvent.change(screen.getByRole("textbox", { name: "Nom" }), { target: { value: "SAS RH" } })
+  fireEvent.change(screen.getByRole("combobox", { name: "Taille" }), { target: { value: "3" } })
+  fireEvent.change(screen.getByRole("textbox", { name: "Adresse" }), {
+    target: { value: "1 rue de la Paix" },
+  })
+  fireEvent.change(screen.getByRole("textbox", { name: "Code postal" }), {
+    target: { value: "75000" },
+  })
+  fireEvent.change(screen.getByRole("textbox", { name: "Ville" }), { target: { value: "Paris" } })
+  fireEvent.change(screen.getByRole("textbox", { name: "Pays" }), { target: { value: "France" } })
+  fireEvent.change(screen.getByRole("textbox", { name: "Description" }), {
+    target: { value: "Société de conseil en RH" },
+  })
 
   const boutonRevenir = screen.getByRole("button", { name: "Terminer" })
 
   boutonRevenir.click()
 
   await waitFor(() => {
-    // screen.getByText(/Vos coordonnées/i)
-    // screen.getByRole("textbox", { name: "Nom" })
     screen.getByText("Nom de la société : SAS RH")
+    screen.getByText("Taille de la société : 3")
+    screen.getByText("Adresse de la société : 1 rue de la Paix")
+    screen.getByText("Code postal de la société : 75000")
+    screen.getByText("Ville de la société : Paris")
+    screen.getByText("Pays de la société : France")
+    screen.getByText("Description de la société : Société de conseil en RH")
   })
 })
 
@@ -83,7 +99,17 @@ const InfoSociete = () => {
 
   return (
     <div id="infoSociete">
-      {contact?.societe && <p>Nom de la société : {contact.societe.nom}</p>}
+      {contact?.societe && (
+        <>
+          <p>Nom de la société : {contact.societe.nom}</p>
+          <p>Taille de la société : {contact.societe.taille}</p>
+          <p>Adresse de la société : {contact.societe.adresse}</p>
+          <p>Code postal de la société : {contact.societe.codePostal}</p>
+          <p>Ville de la société : {contact.societe.ville}</p>
+          <p>Pays de la société : {contact.societe.pays}</p>
+          <p>Description de la société : {contact.societe.description}</p>
+        </>
+      )}
     </div>
   )
 }

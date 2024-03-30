@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { ContactContext } from "./contact.context"
 import { Societe } from "../model/Contact"
+import { ContactContext } from "./Contact.context"
 
 export const ComponentSociete = () => {
   const { updateSociete } = useContext(ContactContext)
@@ -16,7 +16,7 @@ export const ComponentSociete = () => {
             placeholder="Nom de la société"
             className="block w-full p-2 mb-4 border rounded"
             onChange={(e) => {
-              updateSociete("societe", { nom: e.target.value } as Societe)
+              updateSociete("nom", { nom: e.target.value } as Societe)
             }}
             required
           />
@@ -27,7 +27,7 @@ export const ComponentSociete = () => {
             name="taille"
             className="block w-full p-2 mb-4 bg-white border rounded"
             onChange={(e) => {
-              updateSociete("taille", { nom: e.target.value } as Societe)
+              updateSociete("taille", { taille: e.target.value } as Societe)
             }}
             required
           >
@@ -45,7 +45,7 @@ export const ComponentSociete = () => {
             placeholder="Adresse de la société"
             className="block w-full p-2 mb-4 border rounded"
             onChange={(e) => {
-              updateSociete("adresse", { nom: e.target.value } as Societe)
+              updateSociete("adresse", { adresse: e.target.value } as Societe)
             }}
             required
           />
@@ -57,7 +57,7 @@ export const ComponentSociete = () => {
             placeholder="Code postal"
             className="block w-full p-2 mb-4 border rounded"
             onChange={(e) => {
-              updateSociete("codePostal", { nom: e.target.value } as Societe)
+              updateSociete("codePostal", { codePostal: e.target.value } as Societe)
             }}
             required
           />
@@ -69,7 +69,7 @@ export const ComponentSociete = () => {
             placeholder="Code postal"
             className="block w-full p-2 mb-4 border rounded"
             onChange={(e) => {
-              updateSociete("ville", { nom: e.target.value } as Societe)
+              updateSociete("ville", { ville: e.target.value } as Societe)
             }}
             required
           />
@@ -81,7 +81,7 @@ export const ComponentSociete = () => {
             placeholder="Code postal"
             className="block w-full p-2 mb-4 border rounded"
             onChange={(e) => {
-              updateSociete("pays", { nom: e.target.value } as Societe)
+              updateSociete("pays", { pays: e.target.value } as Societe)
             }}
             required
           />
@@ -93,7 +93,7 @@ export const ComponentSociete = () => {
             placeholder="Description de la société"
             className="block w-full p-2 mb-4 border rounded"
             onChange={(e) => {
-              updateSociete("description", { nom: e.target.value } as Societe)
+              updateSociete("description", { description: e.target.value } as Societe)
             }}
             required
           />

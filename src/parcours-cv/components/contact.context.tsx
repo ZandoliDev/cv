@@ -3,7 +3,7 @@ import { Contact, Societe } from "../model/Contact"
 
 interface ContactContextType {
   contact: Contact
-  updateSociete: (champ: string, valeur: Societe) => void
+  updateSociete: (champ: keyof Societe, nouvelleSociete: Societe) => void
 }
 
 export const ContactContext = createContext<ContactContextType>({
@@ -18,8 +18,8 @@ interface ContactContextProviderProps {
 export const ContactContextProvider = (props: ContactContextProviderProps) => {
   const [contact, setContact] = useState<Contact>({} as Contact)
 
-  const updateSociete = (champ: string, societe: Societe) => {
-    setContact({ ...contact, [champ]: societe})
+  const updateSociete = (champ: keyof Societe, nouvelleSociete: Societe) => {
+    setContact({ ...contact, societe: { ...contact.societe, [champ]: nouvelleSociete[champ] } })
   }
 
   return (
