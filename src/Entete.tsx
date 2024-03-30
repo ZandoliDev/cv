@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { TelechargerCV } from "./parcours-cv/TelechargerCV"
-import { etapeIntroduction } from "./parcours-cv/ParcoursCV"
+import { TelechargerCV } from "./parcours-cv/components/TelechargerCV"
+import { etapeIntroduction } from "./parcours-cv/model/ParcoursCV"
 
 export const Entete = () => {
   const [showPopup, setShowPopup] = useState(false)

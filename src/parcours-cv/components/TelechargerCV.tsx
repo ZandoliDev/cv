@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Etape } from "./Etapes"
+import { Etape } from "../model/Etapes"
 
 export const TelechargerCV = ({
   etapeCourante,

@@ -1,8 +1,7 @@
-import { afterEach, test } from "vitest"
-import { Etape } from "./Etapes"
 import { cleanup, fireEvent, render, screen } from "@testing-library/react"
-import { TelechargerCV } from "./TelechargerCV"
-
+import { afterEach, test } from "vitest"
+import { TelechargerCV } from "../components/TelechargerCV"
+import { Etape } from "../model/Etapes"
 
 afterEach(() => {
   cleanup()
@@ -86,5 +85,3 @@ test("A la deuxième de deux étapes, quand on clique sur Revenir, on passe à l
   screen.getByRole("button", { name: "Annuler" })
   screen.getByRole("button", { name: "Continuer" })
 })
-
-
