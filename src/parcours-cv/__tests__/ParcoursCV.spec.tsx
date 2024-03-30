@@ -1,5 +1,5 @@
 import { expect, test } from "vitest"
-import { Etape } from "../model/Etapes"
+import { Etape } from "../model/Etape"
 
 test("A l'initialisation du parcours, on affiche la première étape", () => {
   const premiereEtape = new Etape(<div>Première étape</div>)

@@ -1,6 +1,7 @@
 export class Etape {
   private etapeSuivante?: Etape
   private etapePrecedente?: Etape
+  private fonctionValidation?: () => void
 
   constructor(private readonly contenu: React.ReactElement) {}
 
@@ -16,6 +17,10 @@ export class Etape {
     return this.contenu
   }
 
+  getFonctionValidation() {
+    return this.fonctionValidation
+  }
+
   setEtapeSuivante(etape: Etape) {
     this.etapeSuivante = etape
     etape.setEtapePrecedente(this)
@@ -23,6 +28,10 @@ export class Etape {
 
   setEtapePrecedente(etape: Etape) {
     this.etapePrecedente = etape
+  }
+
+  setFonctionValidation(fonctionValidation: () => void) {
+    this.fonctionValidation = fonctionValidation
   }
 
   isFinale() {

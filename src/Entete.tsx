@@ -1,6 +1,5 @@
 import { useState } from "react"
-import { TelechargerCV } from "./parcours-cv/components/TelechargerCV"
-import { etapeIntroduction } from "./parcours-cv/model/ParcoursCV"
+import { ModaleTelechargementCv } from "./parcours-cv/components/ModaleTelechargementCv"
 
 export const Entete = () => {
   const [showPopup, setShowPopup] = useState(false)
@@ -68,7 +67,11 @@ export const Entete = () => {
         </div>
       </div>
 
-      {showPopup && <TelechargerCV fermerPopup={fermerPopup} etapeCourante={etapeIntroduction} />}
+      {showPopup && (
+        <ModaleTelechargementCv
+          fonctionAnnulation={fermerPopup}
+        />
+      )}
     </header>
   )
 }
