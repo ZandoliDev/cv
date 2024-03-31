@@ -39,17 +39,17 @@ const Experience = (experience: ExperienceType) => {
         <p className="text-sm text-gray-500">{experience.statut}</p>
         <p className="text-sm text-gray-600">{experience.periode}</p>
 
-        {experience.contextes.map((contexte) => (
-          <p className="mt-2 text-gray-600">{contexte}</p>
+        {experience.contextes.map((contexte, index) => (
+          <p className="mt-2 text-gray-600" key={index}>
+            {contexte}
+          </p>
         ))}
-        <p className="mt-2 text-gray-600">
-          Tâches et activités :
-          <ul className="list-disc list-inside">
-            {experience.activites.map((activite) => (
-              <li>{activite}</li>
-            ))}
-          </ul>
-        </p>
+        <p className="mt-2 text-gray-600">Tâches et activités :</p>
+        <ul className="list-disc list-inside">
+          {experience.activites.map((activite, index) => (
+            <li key={index}>{activite}</li>
+          ))}
+        </ul>
         <p className="mt-2 text-gray-600">
           Compétences techniques :
           <span className="font-semibold"> {experience.competencesTechniques.join(", ")}</span>
@@ -71,8 +71,8 @@ export const Experiences = () => {
     <>
       <section className="md:col-span-2 bg-white p-4 rounded-lg shadow">
         <h3 className="text-cyan-600 font-bold text-lg mb-4">Expériences</h3>
-        {mesExperiences.map((experience) => (
-          <Experience {...experience} />
+        {mesExperiences.map((experience, index) => (
+          <Experience {...experience} key={index}/>
         ))}
       </section>
     </>

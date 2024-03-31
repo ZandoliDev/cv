@@ -47,8 +47,8 @@ export const Formations = () => {
   return (
     <section className="bg-white p-4 rounded-lg shadow">
       <h3 className="text-cyan-600 font-bold text-lg mb-4">Formations</h3>
-      {mesFormations.map((formation) => (
-        <Formation {...formation} />
+      {mesFormations.map((formation, index) => (
+        <Formation {...formation} key={index}/>
       ))}
     </section>
   )

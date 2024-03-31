@@ -50,9 +50,7 @@ export const Entete = () => {
         </div>
 
         <div id="titre" className="w-full ml-5 p-2 bg-cyan-200 shadow-xl rounded text-right ">
-          <p>
-            <h1 className="text-xl font-semibold text-gray-700">Tech Lead / Développeur Senior</h1>
-          </p>
+          <h1 className="text-xl font-semibold text-gray-700">Tech Lead / Développeur Senior</h1>
           <p className="mt-1 text-gray-600">
             Spécialiste backend Java avec plus de 10 ans d'expérience
             <br />
