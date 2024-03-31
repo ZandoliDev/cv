@@ -2,7 +2,7 @@ export const APropos = () => {
   return (
     <>
       <section className="bg-white p-4 rounded-lg shadow mb-6">
-        <h3 className="text-cyan-600 font-bold text-lg mb-4">À propos de moi</h3>
+        <h3 className="text-cyan-800 font-bold text-lg mb-4">À propos de moi</h3>
         <p>
           Bonjour, je suis Didier, un développeur passionné avec une solide expérience en Java,
           particulièrement dans l'écosystème Spring et ouvert à d'autres langages de programmations.

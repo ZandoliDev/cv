@@ -9,7 +9,7 @@ export const SchemaCompetences = () => {
 
   return (
     <section className="mb-6">
-      <h3 className="bg-cyan-600 text-white text-xl font-bold rounded-t-lg p-4 shadow">
+      <h3 className="bg-cyan-800 text-white text-xl font-bold rounded-t-lg p-4 shadow">
         Schématisation de mes compétences
       </h3>
       <img
@@ -29,7 +29,7 @@ export const SchemaCompetences = () => {
         >
           <div className="bg-white rounded p-5">
             <button onClick={handleClose}>
-              <i className="text-lg text-cyan-600 fa-regular fa-circle-xmark" />
+              <i className="text-lg text-cyan-800 fa-regular fa-circle-xmark" />
             </button>
             <img
               src={skillsSchema}

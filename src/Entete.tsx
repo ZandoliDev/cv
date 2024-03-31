@@ -36,14 +36,14 @@ export const Entete = () => {
         className="flex flex-wrap md:flex-nowrap items-center justify-between"
       >
         <div className="mb-4 md:mb-0 w-full md:w-auto text-gray-600">
-          <h2 className="text-3xl font-bold text-cyan-600">{name}</h2>
+          <h2 className="text-3xl font-bold text-cyan-800">{name}</h2>
           <p className="mt-1 ">{email}</p>
           <p className="mt-2">{calculateAge()} ans</p>
           <p className="mt-2">Permis B</p>
           <p className="mt-2 text-sm text-gray-600">Freelance en SASU</p>
           <button
             onClick={ouvrirPopup}
-            className="w-64 mt-3 inline-block bg-cyan-600 text-white text-sm font-bold rounded-full px-6 py-2"
+            className="w-64 mt-3 inline-block bg-cyan-800 text-white text-sm font-bold rounded-full px-6 py-2"
           >
             Télécharger mon CV en PDF
           </button>

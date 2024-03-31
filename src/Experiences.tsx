@@ -70,9 +70,9 @@ export const Experiences = () => {
   return (
     <>
       <section className="md:col-span-2 bg-white p-4 rounded-lg shadow">
-        <h3 className="text-cyan-600 font-bold text-lg mb-4">Expériences</h3>
+        <h3 className="text-cyan-800 font-bold text-lg mb-4">Expériences</h3>
         {mesExperiences.map((experience, index) => (
-          <Experience {...experience} key={index}/>
+          <Experience {...experience} key={index} />
         ))}
       </section>
     </>
