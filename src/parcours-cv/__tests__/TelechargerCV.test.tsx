@@ -70,7 +70,9 @@ test("Le clic sur le bouton 'Continuer' depuis le formulaire de la société sau
   )
 
   fireEvent.change(screen.getByRole("textbox", { name: "Nom" }), { target: { value: "SAS RH" } })
-  fireEvent.change(screen.getByRole("combobox", { name: "Taille" }), { target: { value: "3" } })
+  fireEvent.change(screen.getByRole("combobox", { name: "Taille" }), {
+    target: { value: "Entre 10 et 50 salariés" },
+  })
   fireEvent.change(screen.getByRole("textbox", { name: "Adresse" }), {
     target: { value: "1 rue de la Paix" },
   })
@@ -89,14 +91,22 @@ test("Le clic sur le bouton 'Continuer' depuis le formulaire de la société sau
 
   await waitFor(() => {
     screen.getByText("Nom de la société : SAS RH")
-    screen.getByText("Taille de la société : 3")
+    screen.getByText("Taille de la société : Entre 10 et 50 salariés")
     screen.getByText("Adresse de la société : 1 rue de la Paix")
     screen.getByText("Code postal de la société : 75000")
     screen.getByText("Ville de la société : Paris")
     screen.getByText("Pays de la société : France")
     screen.getByText("Description de la société : Société de conseil en RH")
 
-    expect(sauvegarderSociete).toHaveBeenCalledOnce()
+    expect(sauvegarderSociete).toHaveBeenCalledWith({
+      nom: "SAS RH",
+      taille: "Entre 10 et 50 salariés",
+      adresse: "1 rue de la Paix",
+      codePostal: "75000",
+      ville: "Paris",
+      pays: "France",
+      description: "Société de conseil en RH",
+    })
   })
 })
 

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
+import { sauvegarderSociete } from "../gateway/societe.gateway"
 import { Etape } from "../model/Etape"
 import { etapeIntroduction } from "../model/ParcoursCV"
-import { sauvegarderSociete } from "../gateway/societe.gateway"
 import { ContactContext } from "./Contact.context"
 
 export const ModaleTelechargementCv = ({
@@ -12,8 +12,7 @@ export const ModaleTelechargementCv = ({
   fonctionAnnulation: () => void
   fonctionFinalisation: () => void
   etapeCourante?: Etape
-  }) => {
-
+}) => {
   const { contact } = useContext(ContactContext)
   const [etape, setEtape] = useState(etapeCourante ? etapeCourante : etapeIntroduction)
 
@@ -47,7 +46,7 @@ export const ModaleTelechargementCv = ({
               <button
                 type="button"
                 onClick={etapePrecedente}
-                className="bg-cyan-600 text-white rounded px-4 py-2"
+                className="bg-cyan-800 text-white rounded px-4 py-2"
               >
                 <i className="fa-solid fa-arrow-left"></i> Revenir
               </button>
@@ -56,7 +55,7 @@ export const ModaleTelechargementCv = ({
               <button
                 type="button"
                 onClick={etapeSuivante}
-                className="bg-cyan-600 text-white rounded px-4 py-2"
+                className="bg-cyan-800 text-white rounded px-4 py-2"
               >
                 Continuer <i className="fa-solid fa-arrow-right"></i>
               </button>
@@ -65,7 +64,7 @@ export const ModaleTelechargementCv = ({
               <button
                 type="button"
                 onClick={validerParcours}
-                className="bg-cyan-600 text-white rounded px-4 py-2"
+                className="bg-cyan-800 text-white rounded px-4 py-2"
               >
                 Terminer
               </button>

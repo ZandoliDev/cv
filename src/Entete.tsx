@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { ModaleTelechargementCv } from "./parcours-cv/components/ModaleTelechargementCv"
+import { ContactContextProvider } from "./parcours-cv/components/Contact.context"
 
 export const Entete = () => {
   const [showPopup, setShowPopup] = useState(false)
@@ -66,10 +67,12 @@ export const Entete = () => {
       </div>
 
       {showPopup && (
-        <ModaleTelechargementCv
-          fonctionAnnulation={fermerPopup}
-          fonctionFinalisation={fermerPopup}
-        />
+        <ContactContextProvider>
+          <ModaleTelechargementCv
+            fonctionAnnulation={fermerPopup}
+            fonctionFinalisation={fermerPopup}
+          />
+        </ContactContextProvider>
       )}
     </header>
   )

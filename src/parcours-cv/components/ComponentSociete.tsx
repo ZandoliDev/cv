@@ -32,10 +32,10 @@ export const ComponentSociete = () => {
             required
           >
             <option value="">Choisissez la taille de la société</option>
-            <option value="1">Moins de 10 salariés</option>
-            <option value="2">Entre 10 et 50 salariés</option>
-            <option value="3">Entre 50 et 250 salariés</option>
-            <option value="4">Plus de 250 salariés</option>
+            <option>Moins de 10 salariés</option>
+            <option>Entre 10 et 50 salariés</option>
+            <option>Entre 50 et 250 salariés</option>
+            <option>Plus de 250 salariés</option>
           </select>
         </label>
         <label>
