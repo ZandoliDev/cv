@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { ContactContextProvider } from "./parcours-cv/components/Contact.context"
 import { ModaleTelechargementCv } from "./parcours-cv/components/ModaleTelechargementCv"
 
 export const Entete = () => {
@@ -73,12 +72,10 @@ export const Entete = () => {
       </div>
 
       {showPopup && (
-        <ContactContextProvider>
-          <ModaleTelechargementCv
-            fonctionAnnulation={fermerPopup}
-            fonctionFinalisation={fermerPopup}
-          />
-        </ContactContextProvider>
+        <ModaleTelechargementCv
+          fonctionAnnulation={fermerPopup}
+          fonctionFinalisation={fermerPopup}
+        />
       )}
     </header>
   )

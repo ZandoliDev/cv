@@ -1,17 +1,15 @@
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react"
-import { useContext } from "react"
 import { afterEach, expect, test, vi } from "vitest"
-import { ContactContext, ContactContextProvider } from "../components/Contact.context"
 import { ModaleTelechargementCv } from "../components/ModaleTelechargementCv"
-import { etapeSociete } from "../model/ParcoursCV"
-import { sauvegarderSociete } from "../gateway/societe.gateway"
+import { sauvegarderContact } from "../gateway/contact.gateway"
+import { etapeContact } from "../model/ParcoursCV"
 
 afterEach(() => {
   cleanup()
   vi.clearAllMocks()
 })
 
-vi.mock("../gateway/societe.gateway", () => ({ sauvegarderSociete: vi.fn() }))
+vi.mock("../gateway/contact.gateway", () => ({ sauvegarderContact: vi.fn() }))
 
 test("L'affichage de la modale de téléchargement du CV affiche l'introduction", () => {
   render(<ModaleTelechargementCv fonctionAnnulation={() => {}} fonctionFinalisation={() => {}} />)
@@ -36,16 +34,16 @@ test("Le clic sur le bouton 'Continuer' depuis l'introduction affiche le formula
     screen.getByRole("textbox", { name: "Prénom" })
     screen.getByRole("button", { name: "Annuler" })
     screen.getByRole("button", { name: "Revenir" })
-    screen.getByRole("button", { name: "Continuer" })
+    screen.getByRole("button", { name: "Terminer" })
   })
 })
 
-test("Le clic sur le bouton 'Revenir' depuis le formulaire de la société affiche le formulaire de contact", async () => {
+test("Le clic sur le bouton 'Revenir' depuis le formulaire de contact affiche l'introduction", async () => {
   render(
     <ModaleTelechargementCv
       fonctionAnnulation={() => {}}
       fonctionFinalisation={() => {}}
-      etapeCourante={etapeSociete}
+      etapeCourante={etapeContact}
     />
   )
 
@@ -54,82 +52,57 @@ test("Le clic sur le bouton 'Revenir' depuis le formulaire de la société affic
   boutonRevenir.click()
 
   await waitFor(() => {
-    screen.getByText(/Prénom/i)
+    screen.getByText(/Je suis ravi de votre intérêt pour mon profil/i)
   })
 })
 
-test("Le clic sur le bouton 'Continuer' depuis le formulaire de la société sauvegarde les informations saisies dans le contexte et affiche le formulaire du contact", async () => {
+test("Le clic sur le bouton 'Terminer' depuis le formulaire de contact sauvegarde les informations saisies", async () => {
+  vi.mocked(sauvegarderContact).mockResolvedValue()
 
-  vi.mocked(sauvegarderSociete).mockResolvedValue()
-  
   render(
-    <ContactContextProvider>
       <ModaleTelechargementCv
         fonctionAnnulation={() => {}}
         fonctionFinalisation={() => {}}
-        etapeCourante={etapeSociete}
+        etapeCourante={etapeContact}
       />
-      <InfoSociete />
-    </ContactContextProvider>
   )
 
-  fireEvent.change(screen.getByRole("textbox", { name: "Nom" }), { target: { value: "SAS RH" } })
-  fireEvent.change(screen.getByRole("combobox", { name: "Taille" }), {
-    target: { value: "Entre 10 et 50 salariés" },
+  fireEvent.change(screen.getByRole("textbox", { name: "Prénom" }), { target: { value: "Damien" } })
+  fireEvent.change(screen.getByRole("textbox", { name: "Nom" }), { target: { value: "Ferol" } })
+  fireEvent.change(screen.getByRole("textbox", { name: "Téléphone" }), { target: { value: "01 02 03 04 05" } })
+  fireEvent.change(screen.getByRole("textbox", { name: "Email" }), {
+    target: { value: "damien.ferol@sasrh.com" },
   })
-  fireEvent.change(screen.getByRole("textbox", { name: "Adresse" }), {
-    target: { value: "1 rue de la Paix" },
+  fireEvent.change(screen.getByRole("textbox", { name: "Nom de votre société" }), {
+    target: { value: "SAS RH" },
   })
-  fireEvent.change(screen.getByRole("textbox", { name: "Code postal" }), {
-    target: { value: "75000" },
-  })
-  fireEvent.change(screen.getByRole("textbox", { name: "Ville" }), { target: { value: "Paris" } })
-  fireEvent.change(screen.getByRole("textbox", { name: "Pays" }), { target: { value: "France" } })
-  fireEvent.change(screen.getByRole("textbox", { name: "Description" }), {
+  fireEvent.change(screen.getByRole("textbox", { name: "Description de votre société" }), {
     target: { value: "Société de conseil en RH" },
   })
+  fireEvent.change(screen.getByRole("textbox", { name: "Site Web de votre société" }), {
+    target: { value: "https://sasrh.com" },
+  })
+  fireEvent.change(screen.getByRole("textbox", { name: "Votre poste dans la société" }), {
+    target: { value: "Recruteur" },
+  })
 
-  const boutonRevenir = screen.getByRole("button", { name: "Terminer" })
+  const boutonTerminer = screen.getByRole("button", { name: "Terminer" })
 
-  boutonRevenir.click()
+  boutonTerminer.click()
 
   await waitFor(() => {
-    screen.getByText("Nom de la société : SAS RH")
-    screen.getByText("Taille de la société : Entre 10 et 50 salariés")
-    screen.getByText("Adresse de la société : 1 rue de la Paix")
-    screen.getByText("Code postal de la société : 75000")
-    screen.getByText("Ville de la société : Paris")
-    screen.getByText("Pays de la société : France")
-    screen.getByText("Description de la société : Société de conseil en RH")
 
-    expect(sauvegarderSociete).toHaveBeenCalledWith({
-      nom: "SAS RH",
-      taille: "Entre 10 et 50 salariés",
-      adresse: "1 rue de la Paix",
-      codePostal: "75000",
-      ville: "Paris",
-      pays: "France",
-      description: "Société de conseil en RH",
+    expect(sauvegarderContact).toHaveBeenCalledWith({
+      prenom: "Damien",
+      nom: "Ferol",
+      telephone: "01 02 03 04 05",
+      email: "damien.ferol@sasrh.com",
+      societe: {
+        nom: "SAS RH",
+        description: "Société de conseil en RH",
+        siteWeb: "https://sasrh.com",
+      },
+      poste: "Recruteur",
     })
   })
 })
-
-const InfoSociete = () => {
-  const { contact } = useContext(ContactContext)
-
-  return (
-    <div id="infoSociete">
-      {contact?.societe && (
-        <>
-          <p>Nom de la société : {contact.societe.nom}</p>
-          <p>Taille de la société : {contact.societe.taille}</p>
-          <p>Adresse de la société : {contact.societe.adresse}</p>
-          <p>Code postal de la société : {contact.societe.codePostal}</p>
-          <p>Ville de la société : {contact.societe.ville}</p>
-          <p>Pays de la société : {contact.societe.pays}</p>
-          <p>Description de la société : {contact.societe.description}</p>
-        </>
-      )}
-    </div>
-  )
-}
