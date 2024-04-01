@@ -10,11 +10,11 @@ export const SchemaCompetences = () => {
   return (
     <section className="mb-6">
       <h3 className="bg-cyan-800 text-white text-xl font-bold rounded-t-lg p-4 shadow">
-        Schématisation de mes compétences
+        Schématisation de mes compétences (Cliquez pour zoomer)
       </h3>
       <img
         src={skillsSchema}
-        className="w-full bg-white p-3 rounded-b-lg hover:shadow-xl cursor-pointer"
+        className="w-full bg-white p-3 rounded-b-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out cursor-pointer"
         alt="Schématisation des mes compétences"
         onClick={handleOpen}
       />
