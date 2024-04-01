@@ -1,21 +1,21 @@
-import axios from "axios";
-import { Societe } from "../model/Contact";
+import axios from "axios"
+import { Societe } from "../model/Contact"
 
 export const sauvegarderSociete = async (societe: Societe): Promise<void> => {
-  
   const url = `https://didier-erin.me/api/societe`
-  await axios.post(
-    url,
-    mapSocieteToAirtableSociete(societe),
-    {
+  await axios
+    .post(url, mapSocieteToAirtableSociete(societe), {
       headers: {
         // Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
-    }
-  )
-  
-  return Promise.resolve();
+    })
+    .then(() => {
+      return Promise.resolve()
+    })
+    .catch(() => {
+      return Promise.reject()
+    })
 }
 
 const mapSocieteToAirtableSociete = (societe: Societe) => {

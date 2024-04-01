@@ -3,6 +3,7 @@ import { sauvegarderSociete } from "../gateway/societe.gateway"
 import { Etape } from "../model/Etape"
 import { etapeIntroduction } from "../model/ParcoursCV"
 import { ContactContext } from "./Contact.context"
+import { NotificationTelechargementCV } from "./NotificationTelechargementCV"
 
 export const ModaleTelechargementCv = ({
   fonctionAnnulation,
@@ -15,6 +16,8 @@ export const ModaleTelechargementCv = ({
 }) => {
   const { contact } = useContext(ContactContext)
   const [etape, setEtape] = useState(etapeCourante ? etapeCourante : etapeIntroduction)
+  const [afficherNotification, setAfficherNotification] = useState(false)
+  const [isSucces, setIsSucces] = useState(false)
 
   const etapeSuivante = () => {
     setEtape(etape.suivante())
@@ -26,6 +29,20 @@ export const ModaleTelechargementCv = ({
 
   const validerParcours = () => {
     sauvegarderSociete(contact.societe)
+      .then(() => {
+        setIsSucces(true)
+      })
+      .catch(() => {
+        setIsSucces(false)
+      })
+      .finally(() => {
+        setAfficherNotification(true)
+      })
+        
+  }
+
+  const fermerNotification = () => {
+    setAfficherNotification(false)
     fonctionFinalisation()
   }
 
@@ -71,6 +88,10 @@ export const ModaleTelechargementCv = ({
             )}
           </div>
         </div>
+
+        {afficherNotification && (
+          <NotificationTelechargementCV fonctionFermeture={fermerNotification} isSucces={isSucces} />
+        )}
       </div>
     </div>
   )
