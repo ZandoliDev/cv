@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { ModaleTelechargementCv } from "./parcours-cv/components/ModaleTelechargementCv"
 import { ContactContextProvider } from "./parcours-cv/components/Contact.context"
+import { ModaleTelechargementCv } from "./parcours-cv/components/ModaleTelechargementCv"
 
 export const Entete = () => {
   const [showPopup, setShowPopup] = useState(false)
@@ -42,15 +42,9 @@ export const Entete = () => {
           <p className="mt-2">{calculateAge()} ans</p>
           <p className="mt-2">Permis B</p>
           <p className="mt-2 text-sm text-gray-600">Freelance en SASU</p>
-          <button
-            onClick={ouvrirPopup}
-            className="w-64 mt-3 inline-block bg-cyan-800 text-white text-sm font-bold rounded-full px-6 py-2"
-          >
-            Télécharger mon CV en PDF
-          </button>
         </div>
 
-        <div id="titre" className="w-full ml-5 p-2 bg-cyan-200 shadow-xl rounded text-right ">
+        <div id="titre" className="w-full ml-5 p-2 bg-cyan-200 rounded text-right shadow">
           <h1 className="text-xl font-semibold text-gray-700">Tech Lead / Développeur Senior</h1>
           <p className="mt-1 text-gray-600">
             Spécialiste backend Java avec plus de 10 ans d'expérience
@@ -64,6 +58,18 @@ export const Entete = () => {
             Actuellement en mission, disponible sous 1 mois et demi
           </p>
         </div>
+      </div>
+
+      <div className="flex justify-center mt-6" style={{ animation: "fadeIn 2s" }}>
+        <button
+          onClick={ouvrirPopup}
+          style={{ animation: "fadeIn 2s ease-in forwards", opacity: 0 }}
+          className="inline-block text-white font-bold rounded-full px-8 py-3 
+    bg-gradient-to-r from-cyan-600 to-cyan-900 hover:from-cyan-900 hover:to-cyan-600 
+    shadow-2xl hover:shadow transition duration-200 ease-in-out transform hover:scale-110 text-2xl"
+        >
+          Télécharger mon CV
+        </button>
       </div>
 
       {showPopup && (
