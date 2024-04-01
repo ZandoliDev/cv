@@ -8,6 +8,7 @@ import { sauvegarderSociete } from "../gateway/societe.gateway"
 
 afterEach(() => {
   cleanup()
+  vi.clearAllMocks()
 })
 
 vi.mock("../gateway/societe.gateway", () => ({ sauvegarderSociete: vi.fn() }))
@@ -23,7 +24,7 @@ test("L'affichage de la modale de téléchargement du CV affiche l'introduction"
   expect(boutonRevenir).toBeNull()
 })
 
-test("Le clic sur le bouton 'Continuer' affiche le formulaire de la société dans la modale", async () => {
+test("Le clic sur le bouton 'Continuer' depuis l'introduction affiche le formulaire de contact", async () => {
   render(<ModaleTelechargementCv fonctionAnnulation={() => {}} fonctionFinalisation={() => {}} />)
 
   const boutonContinuer = screen.getByRole("button", { name: "Continuer" })
@@ -31,14 +32,15 @@ test("Le clic sur le bouton 'Continuer' affiche le formulaire de la société da
   boutonContinuer.click()
 
   await waitFor(() => {
-    screen.getByText(/Votre société/i)
-    screen.getByRole("textbox", { name: "Nom" })
+    screen.getByText(/Vous/i)
+    screen.getByRole("textbox", { name: "Prénom" })
     screen.getByRole("button", { name: "Annuler" })
-    screen.getByRole("button", { name: "Terminer" })
+    screen.getByRole("button", { name: "Revenir" })
+    screen.getByRole("button", { name: "Continuer" })
   })
 })
 
-test("Le clic sur le bouton 'Revenir' depuis le formulaire de la société affiche l'introduction", async () => {
+test("Le clic sur le bouton 'Revenir' depuis le formulaire de la société affiche le formulaire de contact", async () => {
   render(
     <ModaleTelechargementCv
       fonctionAnnulation={() => {}}
@@ -52,12 +54,14 @@ test("Le clic sur le bouton 'Revenir' depuis le formulaire de la société affic
   boutonRevenir.click()
 
   await waitFor(() => {
-    screen.getByText(/Je suis ravi de votre intérêt pour mon profil/i)
+    screen.getByText(/Prénom/i)
   })
 })
 
 test("Le clic sur le bouton 'Continuer' depuis le formulaire de la société sauvegarde les informations saisies dans le contexte et affiche le formulaire du contact", async () => {
 
+  vi.mocked(sauvegarderSociete).mockResolvedValue()
+  
   render(
     <ContactContextProvider>
       <ModaleTelechargementCv

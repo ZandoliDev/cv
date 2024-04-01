@@ -18,7 +18,6 @@ export const ComponentSociete = () => {
             onChange={(e) => {
               updateSociete("nom", { nom: e.target.value } as Societe)
             }}
-            required
           />
         </label>
         <label>
@@ -29,7 +28,6 @@ export const ComponentSociete = () => {
             onChange={(e) => {
               updateSociete("taille", { taille: e.target.value } as Societe)
             }}
-            required
           >
             <option value="">Choisissez la taille de la société</option>
             <option>Moins de 10 salariés</option>
@@ -47,7 +45,6 @@ export const ComponentSociete = () => {
             onChange={(e) => {
               updateSociete("adresse", { adresse: e.target.value } as Societe)
             }}
-            required
           />
         </label>
         <label>
@@ -59,7 +56,6 @@ export const ComponentSociete = () => {
             onChange={(e) => {
               updateSociete("codePostal", { codePostal: e.target.value } as Societe)
             }}
-            required
           />
         </label>
         <label>
@@ -71,7 +67,6 @@ export const ComponentSociete = () => {
             onChange={(e) => {
               updateSociete("ville", { ville: e.target.value } as Societe)
             }}
-            required
           />
         </label>
         <label>
@@ -83,7 +78,6 @@ export const ComponentSociete = () => {
             onChange={(e) => {
               updateSociete("pays", { pays: e.target.value } as Societe)
             }}
-            required
           />
         </label>
         <label>
@@ -95,7 +89,6 @@ export const ComponentSociete = () => {
             onChange={(e) => {
               updateSociete("description", { description: e.target.value } as Societe)
             }}
-            required
           />
         </label>
       </form>

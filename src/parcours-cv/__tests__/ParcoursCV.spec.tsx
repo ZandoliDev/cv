@@ -1,5 +1,6 @@
 import { expect, test } from "vitest"
 import { Etape } from "../model/Etape"
+import { etapeContact, etapeIntroduction, etapeSociete } from "../model/ParcoursCV"
 
 test("A l'initialisation du parcours, on affiche la première étape", () => {
   const premiereEtape = new Etape("etape", <div>Première étape</div>)
@@ -50,4 +51,44 @@ test("Si l'étape a une étape précédente alors elle n'est pas initiale", () =
   etapePrecedente.setEtapeSuivante(etape)
 
   expect(etape.isInitiale()).toBeFalsy()
+})
+
+test("L'étape introducion est la première étape du parcours", () => {
+  expect(etapeIntroduction.isInitiale()).toBeTruthy()
+})
+
+test("L'étape introducion n'est pas la dernière étape du parcours", () => {
+  expect(etapeIntroduction.isFinale()).toBeFalsy()
+})
+
+test("L'étape suivant l'étape introduction est l'étape contact", () => {
+  expect(etapeIntroduction.suivante()).toEqual(etapeContact)
+})
+
+test("L'étape contact n'est pas la première étape du parcours", () => {
+  expect(etapeContact.isInitiale()).toBeFalsy()
+})
+
+test("L'étape prédédant l'étape contact est l'étape introduction", () => {
+  expect(etapeContact.precedente()).toEqual(etapeIntroduction)
+})
+
+test("L'étape contact n'est pas la dernière étape du parcours", () => {
+  expect(etapeContact.isFinale()).toBeFalsy()
+})
+
+test("L'étape suivant l'étape contact est l'étape société", () => {
+  expect(etapeContact.suivante()).toEqual(etapeSociete)
+})  
+
+test("L'étape société n'est pas la première étape du parcours", () => {
+  expect(etapeSociete.isInitiale()).toBeFalsy()
+})
+
+test("L'étape précédant l'étape société est l'étape contact", () => {
+  expect(etapeSociete.precedente()).toEqual(etapeContact)
+})
+
+test("L'étape société est la dernière étape du parcours", () => {
+  expect(etapeSociete.isFinale()).toBeTruthy()
 })

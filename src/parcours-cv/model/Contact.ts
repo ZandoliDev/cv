@@ -1,5 +1,11 @@
 export type Contact = {
+  prenom: string,
+  nom: string,
   societe: Societe
+  service: string,
+  poste: string,
+  telephone: string,
+  email: string
 }
 
 export type Societe = {
