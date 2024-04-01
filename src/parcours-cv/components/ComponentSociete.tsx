@@ -66,7 +66,7 @@ export const ComponentSociete = () => {
           Ville
           <input
             type="text"
-            placeholder="Code postal"
+            placeholder="Ville"
             className="block w-full p-2 mb-4 border rounded"
             onChange={(e) => {
               updateSociete("ville", { ville: e.target.value } as Societe)
@@ -78,7 +78,7 @@ export const ComponentSociete = () => {
           Pays
           <input
             type="text"
-            placeholder="Code postal"
+            placeholder="Pays"
             className="block w-full p-2 mb-4 border rounded"
             onChange={(e) => {
               updateSociete("pays", { pays: e.target.value } as Societe)
