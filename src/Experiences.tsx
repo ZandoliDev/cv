@@ -6,6 +6,7 @@ type ExperienceType = {
   statut: string
   periode: string
   natureMission: string
+  domaine: string
   contextes: string[]
   activites: string[]
   competencesTechniques: string[]
@@ -21,8 +22,8 @@ const mesExperiences: ExperienceType[] = [
     statut: "Freelance, prestataire du Groupe Onepoint",
     natureMission: "assistance technique",
     periode: "depuis janvier 2022",
+    domaine: "Retraites",
     contextes: [
-      "Domaine : Retraites",
       "Contexte : MCO dans un SI d’une centaine d’applications dans une infrastructure en transformation constante",
     ],
     activites: [
@@ -67,8 +68,8 @@ const mesExperiences: ExperienceType[] = [
     statut: "CDI, prestataire d'Agixis",
     natureMission: "assistance technique",
     periode: "01/2021 - 08/20222",
+    domaine: "Mutuelle",
     contextes: [
-      "Domaine : Mutuelle",
       "Contexte : Montée de version majeur de la solution Alfresco en minimisant l’impact (interruption de service) sur le SI et ses utilisateurs",
     ],
     activites: [
@@ -113,8 +114,8 @@ const mesExperiences: ExperienceType[] = [
     statut: "CDI, prestataire d'Agixis",
     natureMission: "assistance technique",
     periode: "02/2020 – 12/2020",
+    domaine: "Mutuelle",
     contextes: [
-      "Domaine : Mutuelle",
       "Contexte : Développement d’une librairie d’évaluation de formules de calcul et implémentation de tarificateurs",
     ],
     activites: [
@@ -146,8 +147,8 @@ const mesExperiences: ExperienceType[] = [
 
 const Experience = (experience: ExperienceType) => {
   return (
-    <section className="p-4">
-      <div className="border-b-2 pb-4 border-gray-200">
+    <section className="px-4">
+      <div className="border-b-4 py-4 border-gray-300">
         <p className="text-gray-700 font-semibold">
           {experience.poste}, {experience.societe}{" "}
           <span className="text-sm">(en {experience.natureMission})</span>
@@ -155,25 +156,26 @@ const Experience = (experience: ExperienceType) => {
         <p className="text-gray-500">{experience.lieu} - {experience.formatTravail}</p>
         <p className="text-sm text-gray-500">{experience.statut}</p>
         <p className="text-sm text-gray-600">{experience.periode}</p>
+        <p className="mt-2 border-t border-gray-400 border-dashed">Domaine: {experience.domaine}</p>
         {experience.contextes.map((contexte, index) => (
-          <p className="mt-2 text-gray-600" key={index}>
+          <p className="mt-2" key={index}>
             {contexte}
           </p>
         ))}
-        <p className="mt-2 text-gray-600">Tâches et activités :</p>
+        <p className="mt-2 border-t border-gray-400 border-dashed">Tâches et activités :</p>
         <ul className="list-disc list-inside">
           {experience.activites.map((activite, index) => (
             <li key={index}>{activite}</li>
           ))}
         </ul>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 border-t border-gray-400 border-dashed text-gray-600">
           Compétences techniques :
-          <span className="font-semibold"> {experience.competencesTechniques.join(", ")}</span>
+          <span className="font-semibold text-sm"> {experience.competencesTechniques.join(", ")}</span>
         </p>
         {experience.competencesInterpersonnelles.length > 0 && (
           <p className="mt-2 text-gray-600">
             Compétences interpersonnelles :
-            <span className="font-semibold">
+            <span className="font-semibold text">
               {" "}
               {experience.competencesInterpersonnelles.join(", ")}
             </span>
