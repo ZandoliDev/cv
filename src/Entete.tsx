@@ -60,11 +60,21 @@ export const Entete = () => {
       </div>
 
       <div className="flex justify-center mt-6" style={{ animation: "fadeIn 2s" }}>
+        <a
+          href="https://cal.com/didier-erin/"
+          target="_blank"
+          style={{ animation: "fadeIn 2s ease-in forwards", opacity: 0 }}
+          className="mr-4 inline-block text-white font-bold rounded-full px-8 py-3 
+    bg-gradient-to-r from-cyan-600 to-cyan-900 hover:from-cyan-900 hover:to-cyan-600 
+    shadow-2xl hover:shadow transition duration-200 ease-in-out transform hover:scale-110 text-2xl"
+        >
+          Me contacter <i className="ml-3 fa-solid fa-arrow-up-right-from-square text-sm align-text-top"></i>
+        </a>
         <button
           onClick={ouvrirPopup}
           style={{ animation: "fadeIn 2s ease-in forwards", opacity: 0 }}
-          className="inline-block text-white font-bold rounded-full px-8 py-3 
-    bg-gradient-to-r from-cyan-600 to-cyan-900 hover:from-cyan-900 hover:to-cyan-600 
+          className="ml-4 inline-block text-white font-bold rounded-full px-8 py-3 
+    bg-gradient-to-r from-cyan-900 to-cyan-600 hover:from-cyan-600 hover:to-cyan-900 
     shadow-2xl hover:shadow transition duration-200 ease-in-out transform hover:scale-110 text-2xl"
         >
           Télécharger mon CV
