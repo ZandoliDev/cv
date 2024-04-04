@@ -24,7 +24,7 @@ const mesExperiences: ExperienceType[] = [
     periode: "depuis janvier 2022",
     domaine: "Retraites",
     contextes: [
-      "Contexte : MCO dans un SI d’une centaine d’applications dans une infrastructure en transformation constante",
+      "MCO dans un SI d’une centaine d’applications dans une infrastructure en transformation constante",
     ],
     activites: [
       "Conception",
@@ -70,7 +70,7 @@ const mesExperiences: ExperienceType[] = [
     periode: "01/2021 - 08/20222",
     domaine: "Mutuelle",
     contextes: [
-      "Contexte : Montée de version majeur de la solution Alfresco en minimisant l’impact (interruption de service) sur le SI et ses utilisateurs",
+      "Montée de version majeur de la solution Alfresco en minimisant l’impact (interruption de service) sur le SI et ses utilisateurs",
     ],
     activites: [
       "Recueil de l’ensemble des contraintes du projet",
@@ -113,10 +113,10 @@ const mesExperiences: ExperienceType[] = [
     formatTravail: "sur site",
     statut: "CDI, prestataire d'Agixis",
     natureMission: "assistance technique",
-    periode: "02/2020 – 12/2020",
+    periode: "02/2020 - 12/2020",
     domaine: "Mutuelle",
     contextes: [
-      "Contexte : Développement d’une librairie d’évaluation de formules de calcul et implémentation de tarificateurs",
+      "Développement d’une librairie d’évaluation de formules de calcul et implémentation de tarificateurs",
     ],
     activites: [
       "Réalisation d’un POC",
@@ -143,13 +143,67 @@ const mesExperiences: ExperienceType[] = [
     ],
     competencesInterpersonnelles: [],
   },
+  {
+    poste: "Développeur Sénior Java",
+    societe: "Alptis",
+    lieu: "Lyon",
+    formatTravail: "sur site",
+    statut: "CDI, prestataire d'Agixis",
+    natureMission: "assistance technique",
+    periode: "02/2019 - 08/2021",
+    domaine: "Mutuelle",
+    contextes: [
+      "Evolutions sur la GED Alfresco métier dans un environnement à haute disponibilité.",
+      "Création d’un portail pour les demandes de recrutement en interne",
+    ],
+    activites: [
+      "Maintenance corrective et évolutive",
+      "Recueil des besoins",
+      "Conception",
+      "Réalisation d’un POC",
+      "Support aux utilisateurs",
+      "Montée de version",
+      "Mise à jour des environnements",
+    ],
+    competencesTechniques: [
+      "Postgresql",
+      "H2",
+      "MongoDB",
+      "IntelliJ",
+      "Git (trunk based development et GitFlow)",
+      "Maven",
+      "Java 8 / 11",
+      "Python",
+      "Spring",
+      "Hibernate",
+      "Freemarker",
+      "Vue.js",
+      " REST",
+      "Swagger",
+      "Spring Boot",
+      "RabbitMq",
+      "Alfresco (cluster)",
+      "Kerberos",
+      "HAProxy",
+      "Tomcat",
+      "Windows",
+      "Linux (Ubuntu, CentOs)",
+      "Docker",
+      "Jenkins",
+      "Sonar",
+      "Nexus",
+      "Redmine",
+      "Github",
+    ],
+    competencesInterpersonnelles: [],
+  },
 ]
 
 const Experience = (experience: ExperienceType) => {
   return (
     <section className="px-4">
-      <div className="my-4 p-6 border rounded-lg">
-        <p className="text-center text-lg text-gray-700 font-semibold">
+      <div className="my-4 p-6 border-y border-cyan-800 rounded-lg">
+        <p className="text-center text-lg text-gray-900 font-semibold">
           {experience.poste}, {experience.societe}{" "}
           <span className="text-sm">(en {experience.natureMission})</span>
         </p>
@@ -158,17 +212,13 @@ const Experience = (experience: ExperienceType) => {
         </p>
         <p className="text-sm text-gray-500">{experience.statut}</p>
         <p className="text-sm text-gray-600 text-right">{experience.periode}</p>
-        <p className="mt-4 pt-4  border-gray-300 text-center">
-          Domaine : {experience.domaine}
-        </p>
+        <p className="mt-4 pt-4  border-gray-300 text-center">Domaine : {experience.domaine}</p>
         {experience.contextes.map((contexte, index) => (
           <p className="mt-2" key={index}>
             {contexte}
           </p>
         ))}
-        <p className="mt-4 pt-4 border-t border-gray-400 text-center">
-          Tâches et activités :
-        </p>
+        <p className="mt-4 pt-4 border-t border-gray-400 text-center">Tâches et activités :</p>
         <ul className="list-disc list-inside space-y-1">
           {experience.activites.map((activite, index) => (
             <li key={index}>{activite}</li>
