@@ -34,7 +34,7 @@ const mesFormations = [
 
 const Formation = (formation: FormationType) => {
   return (
-    <div className="p-4 p-1 my-2 text-sm h-auto">
+    <div className="m-4 p-4  border rounded-lg text-sm h-auto">
       <p className="text-gray-700 font-semibold">
         {formation.annee} - {formation.titre}
       </p>

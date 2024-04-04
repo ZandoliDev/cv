@@ -148,29 +148,38 @@ const mesExperiences: ExperienceType[] = [
 const Experience = (experience: ExperienceType) => {
   return (
     <section className="px-4">
-      <div className="border-b-4 py-4 border-gray-300">
-        <p className="text-gray-700 font-semibold">
+      <div className="my-4 p-6 border rounded-lg">
+        <p className="text-center text-lg text-gray-700 font-semibold">
           {experience.poste}, {experience.societe}{" "}
           <span className="text-sm">(en {experience.natureMission})</span>
         </p>
-        <p className="text-gray-500">{experience.lieu} - {experience.formatTravail}</p>
+        <p className="text-gray-500">
+          {experience.lieu} - {experience.formatTravail}
+        </p>
         <p className="text-sm text-gray-500">{experience.statut}</p>
-        <p className="text-sm text-gray-600">{experience.periode}</p>
-        <p className="mt-2 border-t border-gray-400 border-dashed">Domaine: {experience.domaine}</p>
+        <p className="text-sm text-gray-600 text-right">{experience.periode}</p>
+        <p className="mt-4 pt-4  border-gray-300 text-center">
+          Domaine : {experience.domaine}
+        </p>
         {experience.contextes.map((contexte, index) => (
           <p className="mt-2" key={index}>
             {contexte}
           </p>
         ))}
-        <p className="mt-2 border-t border-gray-400 border-dashed">Tâches et activités :</p>
-        <ul className="list-disc list-inside">
+        <p className="mt-4 pt-4 border-t border-gray-400 text-center">
+          Tâches et activités :
+        </p>
+        <ul className="list-disc list-inside space-y-1">
           {experience.activites.map((activite, index) => (
             <li key={index}>{activite}</li>
           ))}
         </ul>
-        <p className="mt-2 border-t border-gray-400 border-dashed text-gray-600">
+        <p className="mt-4 pt-4 border-t border-gray-400 text-gray-600">
           Compétences techniques :
-          <span className="font-semibold text-sm"> {experience.competencesTechniques.join(", ")}</span>
+          <span className="font-semibold text-sm">
+            {" "}
+            {experience.competencesTechniques.join(", ")}
+          </span>
         </p>
         {experience.competencesInterpersonnelles.length > 0 && (
           <p className="mt-2 text-gray-600">
