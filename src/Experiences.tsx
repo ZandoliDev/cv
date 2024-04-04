@@ -105,6 +105,43 @@ const mesExperiences: ExperienceType[] = [
     ],
     competencesInterpersonnelles: [],
   },
+  {
+    poste: "Tech lead Java Web",
+    societe: "Alptis",
+    lieu: "Lyon",
+    formatTravail: "sur site",
+    statut: "CDI, prestataire d'Agixis",
+    natureMission: "assistance technique",
+    periode: "02/2020 – 12/2020",
+    contextes: [
+      "Domaine : Mutuelle",
+      "Contexte : Développement d’une librairie d’évaluation de formules de calcul et implémentation de tarificateurs",
+    ],
+    activites: [
+      "Réalisation d’un POC",
+      "Conception",
+      "Développement d’une librairie",
+      "Formalisation d’un format de formules",
+      "Implémentations métier basées sur la librairie d’évaluation de formule",
+      "Lead tech sur un module d’authentification",
+    ],
+    competencesTechniques: [
+      "IntelliJ",
+      "Git",
+      "Maven",
+      "Java 11",
+      "Spring (Boot, Security, MVC)",
+      "Keycloak",
+      "RabbitMq",
+      "Linux (Ubuntu)",
+      "Jenkins",
+      "Sonar",
+      "Nexus",
+      "Redmine",
+      "Github",
+    ],
+    competencesInterpersonnelles: [],
+  },
 ]
 
 const Experience = (experience: ExperienceType) => {
