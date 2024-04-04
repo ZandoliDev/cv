@@ -8,7 +8,7 @@ export const SchemaCompetences = () => {
   const handleClose = () => setIsOpen(false)
 
   return (
-    <section className="mb-6">
+    <section>
       <h3 className="bg-cyan-800 text-white text-xl font-bold rounded-t-lg p-4 shadow">
         Schématisation de mes compétences (Cliquez pour zoomer)
       </h3>
