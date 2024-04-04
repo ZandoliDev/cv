@@ -34,7 +34,7 @@ const mesFormations = [
 
 const Formation = (formation: FormationType) => {
   return (
-    <div className="p-4 border-dotted  border-orange-300 p-1 my-2 text-sm ">
+    <div className="p-4 p-1 my-2 text-sm h-auto">
       <p className="text-gray-700 font-semibold">
         {formation.annee} - {formation.titre}
       </p>
@@ -45,7 +45,7 @@ const Formation = (formation: FormationType) => {
 
 export const Formations = () => {
   return (
-    <section className="bg-white rounded-lg shadow">
+    <section className="bg-white rounded-lg shadow h-auto">
       <h3 className="bg-cyan-800 text-white text-xl font-bold rounded-t-lg p-4 shadow">
         Formations
       </h3>
