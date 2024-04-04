@@ -12,7 +12,7 @@ export const Entete = () => {
     setShowPopup(true)
   }
 
-  const dateOfBirth = new Date(import.meta.env.REACT_APP_DATE_OF_BIRTH || "1970-01-01")
+  const dateOfBirth = new Date(import.meta.env.VITE_REACT_APP_DATE_OF_BIRTH || "1970-01-01")
   const name = import.meta.env.VITE_REACT_APP_NAME
   const email = import.meta.env.VITE_REACT_APP_EMAIL
 
