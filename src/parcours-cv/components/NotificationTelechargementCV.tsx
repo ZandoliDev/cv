@@ -20,7 +20,7 @@ export const NotificationTelechargementCV = ({
               Merci ! <i className="fa-regular fa-face-smile"></i>
             </h3>
             <p className="mt-4">Merci d'avoir pris le temps de renseigner ces informations.</p>
-            <p className="mt-4">Vous recevrez très rapidement mon CV par mail.</p>
+            <p className="mt-4">Vous recevrez mon CV par mail dans l'heure. </p>
             <p className="mt-4 italic text-right">Pensez à vérifier dans vos spams</p>
           </div>
         ) : (
